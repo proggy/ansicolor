@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright information
-# ---------------------
+# Copyright notice
+# ----------------
 #
 # Copyright (C) 2013 Daniel Jung.
 # Contact: d.jung@jacobs-university.de
