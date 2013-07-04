@@ -5,8 +5,8 @@ Add ANSI escape codes to a given string to print colored text in consoles and te
 
 
 
-Copyright information
----------------------
+Copyright notice
+----------------
 
 Copyright (C) 2013 Daniel Jung.
 Contact: d.jung@jacobs-university.de
