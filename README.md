@@ -1,14 +1,15 @@
 ansicolor
 =========
 
-Add ANSI escape codes to a given string to print colored text in consoles and terminal emulators.
+Add ANSI escape codes to python strings to print colored text in consoles and
+terminal emulators.
 
 
 
 Copyright notice
 ----------------
 
-Copyright (C) 2013 Daniel Jung.
+Copyright (C) 2013-2014 Daniel Jung, Jacobs University Bremen, Germany.
 Contact: d.jung@jacobs-university.de
 
 This program is free software; you can redistribute it and/or modify it
