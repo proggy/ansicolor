@@ -39,8 +39,7 @@ List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray
 
 List of styles: normal, highlight, underline, blink, invert, conceal
 
-Notes
------
+Notes:
 
 1. The blinking style probably won't work in most terminal emulators.
 
@@ -60,7 +59,7 @@ __modified__ = '2014-05-27'
 
 # styles
 ANSI_NORMAL = '\033[0m'
-ANSI_BOLD = '\033[1m'
+ANSI_HIGHLIGHT = '\033[1m'
 ANSI_UNDERLINE = '\033[4m'
 ANSI_BLINK = '\033[5m'
 ANSI_INVERT = '\033[7m'
@@ -92,14 +91,18 @@ ANSI_BG_LIGHTGRAY = '\033[47m'
 #==================#
 
 
-def colored(string, color=None, bg=None, style=None, revert=True):
+def colored(string, color=None, style=None, bg=None, revert=True):
+    """Add ANSI escape sequences to a given string to display it in a certain
+    *color* and *style* in a console or terminal emulator. Also the background
+    color *bg* can be set separately.  If *revert* is True, return to normal
+    style at the end of the string (default). In *style*, multiple
+    comma-separated styles may be specified.
 
-    """Return string with ANSI escape sequences added to display a certain
-    color and text style in a console or terminal emulator. If "revert" is
-    True, return to normal style at the end of the string (default). In
-    "style", multiple comma-separated styles may be specified.
+    List of supported colors:
+    gray, red, green, yellow, blue, purple, cyan, lightgray
 
-    """
+    List of supported styles:
+    normal, highlight, underline, blink, invert, conceal"""
     # 2012-11-28 - 2012-11-28
     if not isinstance(string, basestring):
         raise TypeError('string expected')
@@ -119,7 +122,7 @@ def colored(string, color=None, bg=None, style=None, revert=True):
             elif style == '1' or 'light'.startswith(style.lower()) \
                     or 'bold'.startswith(style.lower()) \
                     or 'highlighted'.startswith(style.lower()):
-                preamble += ANSI_BOLD
+                preamble += ANSI_HIGHLIGHT
             elif style == '4' or 'underlined'.startswith(style.lower()):
                 preamble += ANSI_UNDERLINE
             elif style == '5' or 'blinking'.startswith(style.lower()):
@@ -214,11 +217,6 @@ def underline(string):
 
 
 def highlight(string):
-    return colored(string, style='highlight')
-
-
-def bold(string):
-    # alias for "highlight"
     return colored(string, style='highlight')
 
 
@@ -339,8 +337,8 @@ def ulightgray(string):
 
 
 def test():
-    """Test program for the ansicolor module."""
-    # 2012-11-28 - 2012-11-28
+    """Test program to demonstrate the features of the ansicolor module."""
+    # 2012-11-28 - 2014-05-27
     print highlight('Welcome to the ansicolor module')
     print highlight('-------------------------------')
     print

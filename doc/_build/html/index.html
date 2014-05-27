@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +13,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -37,6 +35,9 @@
              accesskey="I">index</a></li>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li><a href="#">ansicolor 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -66,8 +67,7 @@ color, the functions &#8220;highlight()&#8221;, &#8220;underline()&#8221;, &#822
 &#8220;blink()&#8221;, and &#8220;normal()&#8221; are provided.</p>
 <p>List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray</p>
 <p>List of styles: normal, highlight, underline, blink, invert, conceal</p>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<p>Notes:</p>
 <ol class="arabic simple">
 <li>The blinking style probably won&#8217;t work in most terminal emulators.</li>
 <li>As far as I know, ANSI escape codes are not interpreted by the Windows (r)
@@ -75,68 +75,33 @@ operating system.</li>
 </ol>
 <p>Courtesy goes to:
 <a class="reference external" href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a></p>
-<dl class="function">
-<dt id="ansicolor.blink">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">blink</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.blink" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.blue">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">blue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.blue" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.bold">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">bold</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.bold" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="ansicolor.colored">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">colored</tt><big>(</big><em>string</em>, <em>color=None</em>, <em>bg=None</em>, <em>style=None</em>, <em>revert=True</em><big>)</big><a class="headerlink" href="#ansicolor.colored" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return string with ANSI escape sequences added to display a certain
-color and text style in a console or terminal emulator. If &#8220;revert&#8221; is
-True, return to normal style at the end of the string (default). In
-&#8220;style&#8221;, multiple comma-separated styles may be specified.</p>
+<tt class="descclassname">ansicolor.</tt><tt class="descname">colored</tt><big>(</big><em>string</em>, <em>color=None</em>, <em>style=None</em>, <em>bg=None</em>, <em>revert=True</em><big>)</big><a class="headerlink" href="#ansicolor.colored" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add ANSI escape sequences to a given string to display it in a certain
+<em>color</em> and <em>style</em> in a console or terminal emulator. Also the background
+color <em>bg</em> can be set separately.  If <em>revert</em> is True, return to normal
+style at the end of the string (default). In <em>style</em>, multiple
+comma-separated styles may be specified.</p>
+<p>List of supported colors:
+gray, red, green, yellow, blue, purple, cyan, lightgray</p>
+<p>List of supported styles:
+normal, highlight, underline, blink, invert, conceal</p>
 </dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.conceal">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">conceal</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.conceal" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dt id="ansicolor.test">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">test</tt><big>(</big><big>)</big><a class="headerlink" href="#ansicolor.test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test program to demonstrate the features of the ansicolor module.</p>
+</dd></dl>
 
+<div class="section" id="styles">
+<h3>Styles<a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="ansicolor.cyan">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">cyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.cyan" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.gray">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">gray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.gray" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.green">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">green</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.green" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hblue">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hblue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hblue" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hcyan">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hcyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hcyan" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hgray">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hgray" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hgreen">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hgreen</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hgreen" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.normal">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">normal</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.normal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -145,23 +110,8 @@ True, return to normal style at the end of the string (default). In
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.hlightgray">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hlightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hlightgray" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hpurple">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hpurple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hpurple" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hred">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hred</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hred" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.hyellow">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">hyellow</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hyellow" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.underline">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">underline</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.underline" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -170,18 +120,21 @@ True, return to normal style at the end of the string (default). In
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.lightgray">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">lightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.lightgray" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.blink">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">blink</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.blink" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.normal">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">normal</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.normal" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.conceal">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">conceal</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.conceal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
+<div class="section" id="colors">
+<h3>Colors<a class="headerlink" href="#colors" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
-<dt id="ansicolor.purple">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">purple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.purple" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.gray">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">gray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.gray" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -190,44 +143,84 @@ True, return to normal style at the end of the string (default). In
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.test">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">test</tt><big>(</big><big>)</big><a class="headerlink" href="#ansicolor.test" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test program for the ansicolor module.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.ublue">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">ublue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ublue" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.green">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">green</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.green" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.ucyan">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">ucyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ucyan" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.yellow">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">yellow</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.yellow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="function">
+<dt id="ansicolor.blue">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">blue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.blue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.purple">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">purple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.purple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.cyan">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">cyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.cyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.lightgray">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">lightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.lightgray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="highlighted-colors">
+<h3>Highlighted colors<a class="headerlink" href="#highlighted-colors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ansicolor.hgray">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hgray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hred">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hred</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hred" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hgreen">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hgreen</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hgreen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hyellow">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hyellow</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hyellow" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hblue">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hblue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hblue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hpurple">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hpurple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hpurple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hcyan">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hcyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hcyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.hlightgray">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">hlightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.hlightgray" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="underlined-colors">
+<h3>Underlined colors<a class="headerlink" href="#underlined-colors" title="Permalink to this headline">¶</a></h3>
 <dl class="function">
 <dt id="ansicolor.ugray">
 <tt class="descclassname">ansicolor.</tt><tt class="descname">ugray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ugray" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.ugreen">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">ugreen</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ugreen" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.ulightgray">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">ulightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ulightgray" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.underline">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">underline</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.underline" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="ansicolor.upurple">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">upurple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.upurple" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
@@ -236,24 +229,45 @@ True, return to normal style at the end of the string (default). In
 <dd></dd></dl>
 
 <dl class="function">
+<dt id="ansicolor.ugreen">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">ugreen</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ugreen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="ansicolor.uyellow">
 <tt class="descclassname">ansicolor.</tt><tt class="descname">uyellow</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.uyellow" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
-<dt id="ansicolor.yellow">
-<tt class="descclassname">ansicolor.</tt><tt class="descname">yellow</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.yellow" title="Permalink to this definition">¶</a></dt>
+<dt id="ansicolor.ublue">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">ublue</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ublue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.upurple">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">upurple</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.upurple" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.ucyan">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">ucyan</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ucyan" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.ulightgray">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">ulightgray</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.ulightgray" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 </div>
 <div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
 <li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
 <li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
 </ul>
+</div>
 </div>
 
 
@@ -265,10 +279,16 @@ True, return to normal style at the end of the string (default). In
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ansicolor</a><ul>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#functions">Functions</a><ul>
+<li><a class="reference internal" href="#styles">Styles</a></li>
+<li><a class="reference internal" href="#colors">Colors</a></li>
+<li><a class="reference internal" href="#highlighted-colors">Highlighted colors</a></li>
+<li><a class="reference internal" href="#underlined-colors">Underlined colors</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
 </ul>
 
   <h3>This Page</h3>
@@ -302,12 +322,15 @@ True, return to normal style at the end of the string (default). In
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li><a href="#">ansicolor 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2014, Daniel Jung.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
 </html>

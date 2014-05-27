@@ -4,17 +4,69 @@
    contain the root `toctree` directive.
 
 ansicolor
-=========
+#########
 
 .. toctree::
    :maxdepth: 2
 
-
-
 .. automodule:: ansicolor
-    :members:
-    :undoc-members:
 
+
+Functions
+=========
+
+.. autofunction:: colored
+.. autofunction:: test
+
+
+Styles
+------
+
+.. autofunction:: normal
+.. autofunction:: highlight
+.. autofunction:: underline
+.. autofunction:: invert
+.. autofunction:: blink
+.. autofunction:: conceal
+
+
+Colors
+------
+
+.. autofunction:: gray
+.. autofunction:: red
+.. autofunction:: green
+.. autofunction:: yellow
+.. autofunction:: blue
+.. autofunction:: purple
+.. autofunction:: cyan
+.. autofunction:: lightgray
+
+
+Highlighted colors
+------------------
+
+.. autofunction:: hgray
+.. autofunction:: hred
+.. autofunction:: hgreen
+.. autofunction:: hyellow
+.. autofunction:: hblue
+.. autofunction:: hpurple
+.. autofunction:: hcyan
+.. autofunction:: hlightgray
+
+
+Underlined colors
+-----------------
+
+.. autofunction:: ugray
+.. autofunction:: ured
+.. autofunction:: ugreen
+.. autofunction:: uyellow
+.. autofunction:: ublue
+.. autofunction:: upurple
+.. autofunction:: ucyan
+.. autofunction:: ulightgray 
 
 
 Indices and tables
