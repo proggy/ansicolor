@@ -4,8 +4,8 @@
 # Copyright notice
 # ----------------
 #
-# Copyright (C) 2013 Daniel Jung.
-# Contact: d.jung@jacobs-university.de
+# Copyright (C) 2013-2014 Daniel Jung.
+# Contact: djungbremen@gmail.com
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -21,36 +21,36 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 #
-"""Add ANSI escape codes to a given string to print colored text in consoles
+"""Add ANSI escape codes to a given string to print styled text in consoles
 and terminal emulators.
 
 The main function with which about anything can be done is "colored()".  Almost
-any combination of font color, background color and different styles (bold,
-underlined, etc.) can be defined using keyword arguments.
+any combination of font color, background color and different styles
+(highlighted, underlined, etc.) can be defined using keyword arguments.
 
 For convenience, there exist some functions with an even shorter syntax:
-"red()", "green()", etc. just to color text, "bred()", "bgreen()", etc. to get
-bold colored text (highlighted text), "ured()", "ugreen()", etc. to get
-underlined colored text. To just change the style of the text, not the color,
-the functions "bold()", "underline()", "invert()", "conceal()", "blink()", and
-"normal()" can be used.
+"red()", "green()", etc. to just color the text, "bred()", "bgreen()", etc. to
+get highlighted (bold) colored text, "ured()", "ugreen()", etc. to get
+underlined colored text. To just change the style of the text and not its
+color, the functions "highlight()", "underline()", "invert()", "conceal()",
+"blink()", and "normal()" are provided.
 
 List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray
 
-List of styles: normal, bold, underline, blink, invert, conceal
+List of styles: normal, highlight, underline, blink, invert, conceal
 
-Note 1: The blinking style probably won't work in most terminal emulators.
+Notes
+-----
 
-Note 2: The "light" ANSI colors are called "bold" here, because most terminal
-emulators are displaying them not only in a lighter color, but also in bold
-style.
+1. The blinking style probably won't work in most terminal emulators.
 
-Note 3: As far as I know, on Windows it won't work.
+2. As far as I know, ANSI escape codes are not interpreted by the Windows (r)
+   operating system.
 
 Courtesy goes to:
 http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html"""
 __created__ = '2012-11-28'
-__modified__ = '2012-11-28'
+__modified__ = '2014-05-27'
 
 
 #=========================#
@@ -96,8 +96,8 @@ def colored(string, color=None, bg=None, style=None, revert=True):
 
     """Return string with ANSI escape sequences added to display a certain
     color and text style in a console or terminal emulator. If "revert" is
-    True, return to normal style at the end of the string. In "style", multiple
-    comma-separated styles can be specified.
+    True, return to normal style at the end of the string (default). In
+    "style", multiple comma-separated styles may be specified.
 
     """
     # 2012-11-28 - 2012-11-28
@@ -213,8 +213,13 @@ def underline(string):
     return colored(string, style='underline')
 
 
+def highlight(string):
+    return colored(string, style='highlight')
+
+
 def bold(string):
-    return colored(string, style='bold')
+    # alias for "highlight"
+    return colored(string, style='highlight')
 
 
 def invert(string):
@@ -262,37 +267,37 @@ def lightgray(string):
     return colored(string, color='lightgray')
 
 
-# define bold style text color functions
-def bgray(string):
-    return colored(string, style='bold', color='gray')
+# define highlighted text color functions
+def hgray(string):
+    return colored(string, style='highlight', color='gray')
 
 
-def bred(string):
-    return colored(string, style='bold', color='red')
+def hred(string):
+    return colored(string, style='highlight', color='red')
 
 
-def bgreen(string):
-    return colored(string, style='bold', color='green')
+def hgreen(string):
+    return colored(string, style='highlight', color='green')
 
 
-def byellow(string):
-    return colored(string, style='bold', color='yellow')
+def hyellow(string):
+    return colored(string, style='highlight', color='yellow')
 
 
-def bblue(string):
-    return colored(string, style='bold', color='blue')
+def hblue(string):
+    return colored(string, style='highlight', color='blue')
 
 
-def bpurple(string):
-    return colored(string, style='bold', color='purple')
+def hpurple(string):
+    return colored(string, style='highlight', color='purple')
 
 
-def bcyan(string):
-    return colored(string, style='bold', color='cyan')
+def hcyan(string):
+    return colored(string, style='highlight', color='cyan')
 
 
-def blightgray(string):
-    return colored(string, style='bold', color='lightgray')
+def hlightgray(string):
+    return colored(string, style='highlight', color='lightgray')
 
 
 # define underlined style text color functions
@@ -336,13 +341,13 @@ def ulightgray(string):
 def test():
     """Test program for the ansicolor module."""
     # 2012-11-28 - 2012-11-28
-    print bold('Welcome to the ansicolor module')
-    print bold('-------------------------------')
+    print highlight('Welcome to the ansicolor module')
+    print highlight('-------------------------------')
     print
     print red('This is some red text.')
     print ublue('And this is blue and underlined. Awesome!')
     print
-    print bgray('Finished.')
+    print hgray('Finished.')
 
 
 if __name__ == '__main__':
