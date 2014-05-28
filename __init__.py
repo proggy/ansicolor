@@ -24,16 +24,16 @@
 """Add ANSI escape codes to a given string to print styled text in consoles
 and terminal emulators.
 
-The main function with which about anything can be done is "colored()".  Almost
+The main function with which about anything can be done is *colored()*.  Almost
 any combination of font color, background color and different styles
 (highlighted, underlined, etc.) can be defined using keyword arguments.
 
 For convenience, there exist some functions with an even shorter syntax:
-"red()", "green()", etc. to just color the text, "bred()", "bgreen()", etc. to
-get highlighted (bold) colored text, "ured()", "ugreen()", etc. to get
+*red()*, *green()*, etc. to just color the text, *hred()*, *hgreen()*, etc. to
+get highlighted colored text, *ured()*, *ugreen()*, etc. to get
 underlined colored text. To just change the style of the text and not its
-color, the functions "highlight()", "underline()", "invert()", "conceal()",
-"blink()", and "normal()" are provided.
+color, the functions *highlight()*, *underline()*, *invert()*, *conceal()*,
+*blink()*, and *normal()* are provided.
 
 List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray
 
