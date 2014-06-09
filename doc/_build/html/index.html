@@ -67,16 +67,37 @@ get highlighted colored text, <em>ured()</em>, <em>ugreen()</em>, etc. to get
 underlined colored text. To just change the style of the text and not its
 color, the functions <em>highlight()</em>, <em>underline()</em>, <em>invert()</em>, <em>conceal()</em>,
 <em>blink()</em>, and <em>normal()</em> are provided.</p>
-<p>List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray</p>
-<p>List of styles: normal, highlight, underline, blink, invert, conceal</p>
-<p>Notes:</p>
-<ol class="arabic simple">
-<li>The blinking style probably won&#8217;t work in most terminal emulators.</li>
-<li>As far as I know, ANSI escape codes are not interpreted by the Windows (r)
-operating system.</li>
-</ol>
+<p>List of colors: <em>gray</em>, <em>red</em>, <em>green</em>, <em>yellow</em>, <em>blue</em>, <em>purple</em>, <em>cyan</em>,
+<em>lightgray</em></p>
+<p>List of styles: <em>normal</em>, <em>highlight</em>, <em>underline</em>, <em>blink</em>, <em>invert</em>,
+<em>conceal</em></p>
 <p>Courtesy goes to:
 <a class="reference external" href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a></p>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>The blinking style probably won&#8217;t work in most terminal emulators.</li>
+<li>As far as I know, ANSI escape codes are not interpreted under the Windows
+operating system.</li>
+</ol>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">highlight</span><span class="p">(</span><span class="s">&#39;Welcome to the ansicolor module&#39;</span><span class="p">)</span>
+<span class="go">Welcome to the ansicolor module</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">red</span><span class="p">(</span><span class="s">&#39;This is some red text.&#39;</span><span class="p">)</span>
+<span class="go">This is some red text.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ublue</span><span class="p">(</span><span class="s">&#39;And this is blue and underlined. Awesome!&#39;</span><span class="p">)</span>
+<span class="go">And this is blue and underlined. Awesome!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hgray</span><span class="p">(</span><span class="s">&#39;Finished.&#39;</span><span class="p">)</span>
+<span class="go">Finished.</span>
+</pre></div>
+</div>
+<p>To see the results as rendered in your terminal emulator, call the test program
+by executing this module as a script:</p>
+<blockquote>
+<div>python ansicolor/__init__.py</div></blockquote>
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -281,6 +302,8 @@ normal, highlight, underline, blink, invert, conceal</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ansicolor</a><ul>
+<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#functions">Functions</a><ul>
 <li><a class="reference internal" href="#styles">Styles</a></li>
 <li><a class="reference internal" href="#colors">Colors</a></li>

@@ -35,21 +35,42 @@ underlined colored text. To just change the style of the text and not its
 color, the functions *highlight()*, *underline()*, *invert()*, *conceal()*,
 *blink()*, and *normal()* are provided.
 
-List of colors: gray, red, green, yellow, blue, purple, cyan, lightgray
+List of colors: *gray*, *red*, *green*, *yellow*, *blue*, *purple*, *cyan*,
+*lightgray*
 
-List of styles: normal, highlight, underline, blink, invert, conceal
+List of styles: *normal*, *highlight*, *underline*, *blink*, *invert*,
+*conceal*
 
-Notes:
+Courtesy goes to:
+http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
+
+
+Notes
+-----
 
 1. The blinking style probably won't work in most terminal emulators.
 
-2. As far as I know, ANSI escape codes are not interpreted by the Windows (r)
+2. As far as I know, ANSI escape codes are not interpreted under the Windows
    operating system.
 
-Courtesy goes to:
-http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html"""
-__created__ = '2012-11-28'
-__modified__ = '2014-05-27'
+
+Examples
+--------
+
+>>> highlight('Welcome to the ansicolor module')
+Welcome to the ansicolor module
+>>> red('This is some red text.')
+This is some red text.
+>>> ublue('And this is blue and underlined. Awesome!')
+And this is blue and underlined. Awesome!
+>>> hgray('Finished.')
+Finished.
+
+To see the results as rendered in your terminal emulator, call the test program
+by executing this module as a script:
+
+    python ansicolor/__init__.py"""
+# 2012-11-28 - 2014-06-09
 
 
 #=========================#
