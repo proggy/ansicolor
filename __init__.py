@@ -24,53 +24,77 @@
 """Add ANSI escape codes to a given string to print styled text in consoles
 and terminal emulators.
 
-The main function with which about anything can be done is *colored()*.  Almost
-any combination of font color, background color and different styles
-(highlighted, underlined, etc.) can be defined using keyword arguments.
+The main function with which about anything can be done is :func:`colored`.
+Almost any combination of font color, background color and different styles
+(highlighted, underlined, etc.) can be defined using keyword arguments. Also
+important for practical usage of styled strings is the function :func:`dlen`,
+which computes the **display length** of a string, i.e. the actual number of
+characters the string takes if printed to the screen, excluding any ANSI escape
+sequences.
 
 For convenience, there exist some functions with an even shorter syntax:
-*red()*, *green()*, etc. to just color the text, *hred()*, *hgreen()*, etc. to
-get highlighted colored text, *ured()*, *ugreen()*, etc. to get
-underlined colored text. To just change the style of the text and not its
-color, the functions *highlight()*, *underline()*, *invert()*, *conceal()*,
-*blink()*, and *normal()* are provided.
+:func:`red`, :func:`green`, etc. to just color the text, :func:`hred`,
+:func:`hgreen`, etc. to get highlighted colored text, :func:`ured`,
+:func:`ugreen`, etc. to get underlined colored text. To just change the style
+of the text and not its color, the functions :func:`highlight`,
+:func:`underline`, :func:`invert`, :func:`conceal`, :func:`blink`, and
+:func:`normal` are provided.
 
-List of colors: *gray*, *red*, *green*, *yellow*, *blue*, *purple*, *cyan*,
-*lightgray*
+List of colors:
 
-List of styles: *normal*, *highlight*, *underline*, *blink*, *invert*,
-*conceal*
+    - :func:`gray`
+    - :func:`red`
+    - :func:`green`
+    - :func:`yellow`
+    - :func:`blue`
+    - :func:`purple`
+    - :func:`cyan`
+    - :func:`lightgray`
+
+List of styles:
+
+    - :func:`normal`
+    - :func:`highlight`
+    - :func:`underline`
+    - :func:`blink`
+    - :func:`invert`
+    - :func:`conceal`
 
 Courtesy goes to:
 http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 
 
-Notes
------
+Notes:
 
-1. The blinking style probably won't work in most terminal emulators.
+    1. The blinking style probably won't work in most terminal emulators.
 
-2. As far as I know, ANSI escape codes are not interpreted under the Windows
-   operating system.
+    2. As far as I know, ANSI escape codes are not interpreted under the
+       Windows operating system.
 
 
-Examples
---------
+Examples:
 
->>> highlight('Welcome to the ansicolor module')
-Welcome to the ansicolor module
->>> red('This is some red text.')
-This is some red text.
->>> ublue('And this is blue and underlined. Awesome!')
-And this is blue and underlined. Awesome!
->>> hgray('Finished.')
-Finished.
+    >>> highlight('Welcome to the ansicolor module')
+    Welcome to the ansicolor module
+    >>> red('This is some red text.')
+    This is some red text.
+    >>> ublue('And this is blue and underlined. Awesome!')
+    And this is blue and underlined. Awesome!
+    >>> hgray('Finished.')
+    Finished.
 
 To see the results as rendered in your terminal emulator, call the test program
 by executing this module as a script:
 
     python ansicolor/__init__.py"""
-# 2012-11-28 - 2014-06-09
+#
+# 2012-11-28 - 2014-08-05
+#
+# to do:
+# - provide a class ANSIString, which uses dlen as __len__, and offers another
+#   method clen ("character length") to return the actual number of characters
+#   (including ANSI escape sequences)
+# - make sure this module is unicode-aware
 
 
 #=========================#
@@ -107,23 +131,38 @@ ANSI_BG_CYAN = '\033[46m'
 ANSI_BG_LIGHTGRAY = '\033[47m'
 
 
-#==================#
-# General function #
-#==================#
+#===================#
+# General functions #
+#===================#
 
 
 def colored(string, color=None, style=None, bg=None, revert=True):
     """Add ANSI escape sequences to a given string to display it in a certain
     *color* and *style* in a console or terminal emulator. Also the background
-    color *bg* can be set separately.  If *revert* is True, return to normal
+    color *bg* can be set separately.  If *revert* is *True*, return to normal
     style at the end of the string (default). In *style*, multiple
-    comma-separated styles may be specified.
+    comma-separated styles can be specified.
 
     List of supported colors:
-    gray, red, green, yellow, blue, purple, cyan, lightgray
+
+        - gray
+        - red
+        - green
+        - yellow
+        - blue
+        - purple
+        - cyan
+        - lightgray
 
     List of supported styles:
-    normal, highlight, underline, blink, invert, conceal"""
+
+        - normal
+        - highlight
+        - underline
+        - blink
+        - invert
+        - conceal
+    """
     # 2012-11-28 - 2012-11-28
     if not isinstance(string, basestring):
         raise TypeError('string expected')
@@ -223,9 +262,27 @@ def colored(string, color=None, style=None, bg=None, revert=True):
     return string
 
 
-#=================#
-# Short functions #
-#=================#
+def dlen(string):
+    """Return display length of the given string, i.e. the number of characters
+    that it takes on the screen, excluding any ANSI escape sequences."""
+    out = 0
+    inside = False  # True if currently inside an ANSI escape sequence
+    for c in string:
+        if c == '\033':
+            inside = True
+            continue
+        if inside and c == 'm':
+            inside = False
+            continue
+        if not inside:
+            out += 1
+    return out
+
+
+
+#====================#
+# Shortcut functions #
+#====================#
 
 
 # just change style, not color

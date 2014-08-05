@@ -9,34 +9,72 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>ansicolor</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/djung/lib/ansicolor/__init__.py">/home/djung/lib/ansicolor/__init__.py</a></font></td></tr></table>
-    <p><tt>Add&nbsp;ANSI&nbsp;escape&nbsp;codes&nbsp;to&nbsp;a&nbsp;given&nbsp;string&nbsp;to&nbsp;print&nbsp;colored&nbsp;text&nbsp;in&nbsp;consoles<br>
+    <p><tt>Add&nbsp;ANSI&nbsp;escape&nbsp;codes&nbsp;to&nbsp;a&nbsp;given&nbsp;string&nbsp;to&nbsp;print&nbsp;styled&nbsp;text&nbsp;in&nbsp;consoles<br>
 and&nbsp;terminal&nbsp;emulators.<br>
 &nbsp;<br>
-The&nbsp;main&nbsp;function&nbsp;with&nbsp;which&nbsp;about&nbsp;anything&nbsp;can&nbsp;be&nbsp;done&nbsp;is&nbsp;"<a href="#-colored">colored</a>()".&nbsp;&nbsp;Almost<br>
-any&nbsp;combination&nbsp;of&nbsp;font&nbsp;color,&nbsp;background&nbsp;color&nbsp;and&nbsp;different&nbsp;styles&nbsp;(bold,<br>
-underlined,&nbsp;etc.)&nbsp;can&nbsp;be&nbsp;defined&nbsp;using&nbsp;keyword&nbsp;arguments.<br>
+The&nbsp;main&nbsp;function&nbsp;with&nbsp;which&nbsp;about&nbsp;anything&nbsp;can&nbsp;be&nbsp;done&nbsp;is&nbsp;:func:`colored`.<br>
+Almost&nbsp;any&nbsp;combination&nbsp;of&nbsp;font&nbsp;color,&nbsp;background&nbsp;color&nbsp;and&nbsp;different&nbsp;styles<br>
+(highlighted,&nbsp;underlined,&nbsp;etc.)&nbsp;can&nbsp;be&nbsp;defined&nbsp;using&nbsp;keyword&nbsp;arguments.&nbsp;Also<br>
+important&nbsp;for&nbsp;practical&nbsp;usage&nbsp;of&nbsp;styled&nbsp;strings&nbsp;is&nbsp;the&nbsp;function&nbsp;:func:`dlen`,<br>
+which&nbsp;computes&nbsp;the&nbsp;**display&nbsp;length**&nbsp;of&nbsp;a&nbsp;string,&nbsp;i.e.&nbsp;the&nbsp;actual&nbsp;number&nbsp;of<br>
+characters&nbsp;the&nbsp;string&nbsp;takes&nbsp;if&nbsp;printed&nbsp;to&nbsp;the&nbsp;screen,&nbsp;excluding&nbsp;any&nbsp;ANSI&nbsp;escape<br>
+sequences.<br>
 &nbsp;<br>
 For&nbsp;convenience,&nbsp;there&nbsp;exist&nbsp;some&nbsp;functions&nbsp;with&nbsp;an&nbsp;even&nbsp;shorter&nbsp;syntax:<br>
-"<a href="#-red">red</a>()",&nbsp;"<a href="#-green">green</a>()",&nbsp;etc.&nbsp;just&nbsp;to&nbsp;color&nbsp;text,&nbsp;"<a href="#-bred">bred</a>()",&nbsp;"<a href="#-bgreen">bgreen</a>()",&nbsp;etc.&nbsp;to&nbsp;get<br>
-bold&nbsp;colored&nbsp;text&nbsp;(highlighted&nbsp;text),&nbsp;"<a href="#-ured">ured</a>()",&nbsp;"<a href="#-ugreen">ugreen</a>()",&nbsp;etc.&nbsp;to&nbsp;get<br>
-underlined&nbsp;colored&nbsp;text.&nbsp;To&nbsp;just&nbsp;change&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;text,&nbsp;not&nbsp;the&nbsp;color,<br>
-the&nbsp;functions&nbsp;"<a href="#-bold">bold</a>()",&nbsp;"<a href="#-underline">underline</a>()",&nbsp;"<a href="#-invert">invert</a>()",&nbsp;"<a href="#-conceal">conceal</a>()",&nbsp;"<a href="#-blink">blink</a>()",&nbsp;and<br>
-"<a href="#-normal">normal</a>()"&nbsp;can&nbsp;be&nbsp;used.<br>
+:func:`red`,&nbsp;:func:`green`,&nbsp;etc.&nbsp;to&nbsp;just&nbsp;color&nbsp;the&nbsp;text,&nbsp;:func:`hred`,<br>
+:func:`hgreen`,&nbsp;etc.&nbsp;to&nbsp;get&nbsp;highlighted&nbsp;colored&nbsp;text,&nbsp;:func:`ured`,<br>
+:func:`ugreen`,&nbsp;etc.&nbsp;to&nbsp;get&nbsp;underlined&nbsp;colored&nbsp;text.&nbsp;To&nbsp;just&nbsp;change&nbsp;the&nbsp;style<br>
+of&nbsp;the&nbsp;text&nbsp;and&nbsp;not&nbsp;its&nbsp;color,&nbsp;the&nbsp;functions&nbsp;:func:`highlight`,<br>
+:func:`underline`,&nbsp;:func:`invert`,&nbsp;:func:`conceal`,&nbsp;:func:`blink`,&nbsp;and<br>
+:func:`normal`&nbsp;are&nbsp;provided.<br>
 &nbsp;<br>
-List&nbsp;of&nbsp;colors:&nbsp;gray,&nbsp;red,&nbsp;green,&nbsp;yellow,&nbsp;blue,&nbsp;purple,&nbsp;cyan,&nbsp;lightgray<br>
+List&nbsp;of&nbsp;colors:<br>
 &nbsp;<br>
-List&nbsp;of&nbsp;styles:&nbsp;normal,&nbsp;bold,&nbsp;underline,&nbsp;blink,&nbsp;invert,&nbsp;conceal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`gray`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`red`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`green`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`yellow`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`blue`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`purple`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`cyan`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`lightgray`<br>
 &nbsp;<br>
-Note&nbsp;1:&nbsp;The&nbsp;blinking&nbsp;style&nbsp;probably&nbsp;won't&nbsp;work&nbsp;in&nbsp;most&nbsp;terminal&nbsp;emulators.<br>
+List&nbsp;of&nbsp;styles:<br>
 &nbsp;<br>
-Note&nbsp;2:&nbsp;The&nbsp;"light"&nbsp;ANSI&nbsp;colors&nbsp;are&nbsp;called&nbsp;"bold"&nbsp;here,&nbsp;because&nbsp;most&nbsp;terminal<br>
-emulators&nbsp;are&nbsp;displaying&nbsp;them&nbsp;not&nbsp;only&nbsp;in&nbsp;a&nbsp;lighter&nbsp;color,&nbsp;but&nbsp;also&nbsp;in&nbsp;bold<br>
-style.<br>
-&nbsp;<br>
-Note&nbsp;3:&nbsp;As&nbsp;far&nbsp;as&nbsp;I&nbsp;know,&nbsp;on&nbsp;Windows&nbsp;it&nbsp;won't&nbsp;work.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`normal`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`highlight`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`underline`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`blink`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`invert`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;:func:`conceal`<br>
 &nbsp;<br>
 Courtesy&nbsp;goes&nbsp;to:<br>
-<a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a></tt></p>
+<a href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a><br>
+&nbsp;<br>
+&nbsp;<br>
+Notes:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;The&nbsp;blinking&nbsp;style&nbsp;probably&nbsp;won't&nbsp;work&nbsp;in&nbsp;most&nbsp;terminal&nbsp;emulators.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;As&nbsp;far&nbsp;as&nbsp;I&nbsp;know,&nbsp;ANSI&nbsp;escape&nbsp;codes&nbsp;are&nbsp;not&nbsp;interpreted&nbsp;under&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Windows&nbsp;operating&nbsp;system.<br>
+&nbsp;<br>
+&nbsp;<br>
+Examples:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-highlight">highlight</a>('Welcome&nbsp;to&nbsp;the&nbsp;ansicolor&nbsp;module')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Welcome&nbsp;to&nbsp;the&nbsp;ansicolor&nbsp;module<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-red">red</a>('This&nbsp;is&nbsp;some&nbsp;red&nbsp;text.')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;some&nbsp;red&nbsp;text.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-ublue">ublue</a>('And&nbsp;this&nbsp;is&nbsp;blue&nbsp;and&nbsp;underlined.&nbsp;Awesome!')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;And&nbsp;this&nbsp;is&nbsp;blue&nbsp;and&nbsp;underlined.&nbsp;Awesome!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-hgray">hgray</a>('Finished.')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Finished.<br>
+&nbsp;<br>
+To&nbsp;see&nbsp;the&nbsp;results&nbsp;as&nbsp;rendered&nbsp;in&nbsp;your&nbsp;terminal&nbsp;emulator,&nbsp;call&nbsp;the&nbsp;test&nbsp;program<br>
+by&nbsp;executing&nbsp;this&nbsp;module&nbsp;as&nbsp;a&nbsp;script:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;python&nbsp;ansicolor/__init__.py</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#aa55cc">
@@ -51,31 +89,54 @@ Courtesy&nbsp;goes&nbsp;to:<br>
 <font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
     
 <tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><dl><dt><a name="-bblue"><strong>bblue</strong></a>(string)</dt></dl>
- <dl><dt><a name="-bcyan"><strong>bcyan</strong></a>(string)</dt></dl>
- <dl><dt><a name="-bgray"><strong>bgray</strong></a>(string)</dt><dd><tt>#&nbsp;define&nbsp;bold&nbsp;style&nbsp;text&nbsp;color&nbsp;functions</tt></dd></dl>
- <dl><dt><a name="-bgreen"><strong>bgreen</strong></a>(string)</dt></dl>
- <dl><dt><a name="-blightgray"><strong>blightgray</strong></a>(string)</dt></dl>
- <dl><dt><a name="-blink"><strong>blink</strong></a>(string)</dt></dl>
+<td width="100%"><dl><dt><a name="-blink"><strong>blink</strong></a>(string)</dt></dl>
  <dl><dt><a name="-blue"><strong>blue</strong></a>(string)</dt></dl>
- <dl><dt><a name="-bold"><strong>bold</strong></a>(string)</dt></dl>
- <dl><dt><a name="-bpurple"><strong>bpurple</strong></a>(string)</dt></dl>
- <dl><dt><a name="-bred"><strong>bred</strong></a>(string)</dt></dl>
- <dl><dt><a name="-byellow"><strong>byellow</strong></a>(string)</dt></dl>
- <dl><dt><a name="-colored"><strong>colored</strong></a>(string, color<font color="#909090">=None</font>, bg<font color="#909090">=None</font>, style<font color="#909090">=None</font>, revert<font color="#909090">=True</font>)</dt><dd><tt>Return&nbsp;string&nbsp;with&nbsp;ANSI&nbsp;escape&nbsp;sequences&nbsp;added&nbsp;to&nbsp;display&nbsp;a&nbsp;certain<br>
-color&nbsp;and&nbsp;text&nbsp;style&nbsp;in&nbsp;a&nbsp;console&nbsp;or&nbsp;terminal&nbsp;emulator.&nbsp;If&nbsp;"revert"&nbsp;is<br>
-True,&nbsp;return&nbsp;to&nbsp;normal&nbsp;style&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;string.&nbsp;In&nbsp;"style",&nbsp;multiple<br>
-comma-separated&nbsp;styles&nbsp;can&nbsp;be&nbsp;specified.</tt></dd></dl>
+ <dl><dt><a name="-colored"><strong>colored</strong></a>(string, color<font color="#909090">=None</font>, style<font color="#909090">=None</font>, bg<font color="#909090">=None</font>, revert<font color="#909090">=True</font>)</dt><dd><tt>Add&nbsp;ANSI&nbsp;escape&nbsp;sequences&nbsp;to&nbsp;a&nbsp;given&nbsp;string&nbsp;to&nbsp;display&nbsp;it&nbsp;in&nbsp;a&nbsp;certain<br>
+*color*&nbsp;and&nbsp;*style*&nbsp;in&nbsp;a&nbsp;console&nbsp;or&nbsp;terminal&nbsp;emulator.&nbsp;Also&nbsp;the&nbsp;background<br>
+color&nbsp;*bg*&nbsp;can&nbsp;be&nbsp;set&nbsp;separately.&nbsp;&nbsp;If&nbsp;*revert*&nbsp;is&nbsp;*True*,&nbsp;return&nbsp;to&nbsp;normal<br>
+style&nbsp;at&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;string&nbsp;(default).&nbsp;In&nbsp;*style*,&nbsp;multiple<br>
+comma-separated&nbsp;styles&nbsp;can&nbsp;be&nbsp;specified.<br>
+&nbsp;<br>
+List&nbsp;of&nbsp;supported&nbsp;colors:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;gray<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;red<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;green<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;yellow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;blue<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;purple<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;cyan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;lightgray<br>
+&nbsp;<br>
+List&nbsp;of&nbsp;supported&nbsp;styles:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;normal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;highlight<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;underline<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;blink<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;invert<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;conceal</tt></dd></dl>
  <dl><dt><a name="-conceal"><strong>conceal</strong></a>(string)</dt></dl>
  <dl><dt><a name="-cyan"><strong>cyan</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-dlen"><strong>dlen</strong></a>(string)</dt><dd><tt>Return&nbsp;display&nbsp;length&nbsp;of&nbsp;the&nbsp;given&nbsp;string,&nbsp;i.e.&nbsp;the&nbsp;number&nbsp;of&nbsp;characters<br>
+that&nbsp;it&nbsp;takes&nbsp;on&nbsp;the&nbsp;screen,&nbsp;excluding&nbsp;any&nbsp;ANSI&nbsp;escape&nbsp;sequences.</tt></dd></dl>
  <dl><dt><a name="-gray"><strong>gray</strong></a>(string)</dt><dd><tt>#&nbsp;define&nbsp;normal&nbsp;style&nbsp;text&nbsp;color&nbsp;functions</tt></dd></dl>
  <dl><dt><a name="-green"><strong>green</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hblue"><strong>hblue</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hcyan"><strong>hcyan</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hgray"><strong>hgray</strong></a>(string)</dt><dd><tt>#&nbsp;define&nbsp;highlighted&nbsp;text&nbsp;color&nbsp;functions</tt></dd></dl>
+ <dl><dt><a name="-hgreen"><strong>hgreen</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-highlight"><strong>highlight</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hlightgray"><strong>hlightgray</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hpurple"><strong>hpurple</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hred"><strong>hred</strong></a>(string)</dt></dl>
+ <dl><dt><a name="-hyellow"><strong>hyellow</strong></a>(string)</dt></dl>
  <dl><dt><a name="-invert"><strong>invert</strong></a>(string)</dt></dl>
  <dl><dt><a name="-lightgray"><strong>lightgray</strong></a>(string)</dt></dl>
  <dl><dt><a name="-normal"><strong>normal</strong></a>(string)</dt><dd><tt>#&nbsp;just&nbsp;change&nbsp;style,&nbsp;not&nbsp;color</tt></dd></dl>
  <dl><dt><a name="-purple"><strong>purple</strong></a>(string)</dt></dl>
  <dl><dt><a name="-red"><strong>red</strong></a>(string)</dt></dl>
- <dl><dt><a name="-test"><strong>test</strong></a>()</dt><dd><tt>Test&nbsp;program&nbsp;for&nbsp;the&nbsp;ansicolor&nbsp;module.</tt></dd></dl>
+ <dl><dt><a name="-test"><strong>test</strong></a>()</dt><dd><tt>Test&nbsp;program&nbsp;to&nbsp;demonstrate&nbsp;the&nbsp;features&nbsp;of&nbsp;the&nbsp;ansicolor&nbsp;module.</tt></dd></dl>
  <dl><dt><a name="-ublue"><strong>ublue</strong></a>(string)</dt></dl>
  <dl><dt><a name="-ucyan"><strong>ucyan</strong></a>(string)</dt></dl>
  <dl><dt><a name="-ugray"><strong>ugray</strong></a>(string)</dt><dd><tt>#&nbsp;define&nbsp;underlined&nbsp;style&nbsp;text&nbsp;color&nbsp;functions</tt></dd></dl>
@@ -103,18 +164,16 @@ comma-separated&nbsp;styles&nbsp;can&nbsp;be&nbsp;specified.</tt></dd></dl>
 <strong>ANSI_BG_YELLOW</strong> = '<font color="#c040c0">\x1b</font>[43m'<br>
 <strong>ANSI_BLINK</strong> = '<font color="#c040c0">\x1b</font>[5m'<br>
 <strong>ANSI_BLUE</strong> = '<font color="#c040c0">\x1b</font>[34m'<br>
-<strong>ANSI_BOLD</strong> = '<font color="#c040c0">\x1b</font>[1m'<br>
 <strong>ANSI_CONCEAL</strong> = '<font color="#c040c0">\x1b</font>[8m'<br>
 <strong>ANSI_CYAN</strong> = '<font color="#c040c0">\x1b</font>[36m'<br>
 <strong>ANSI_GRAY</strong> = '<font color="#c040c0">\x1b</font>[30m'<br>
 <strong>ANSI_GREEN</strong> = '<font color="#c040c0">\x1b</font>[32m'<br>
+<strong>ANSI_HIGHLIGHT</strong> = '<font color="#c040c0">\x1b</font>[1m'<br>
 <strong>ANSI_INVERT</strong> = '<font color="#c040c0">\x1b</font>[7m'<br>
 <strong>ANSI_LIGHTGRAY</strong> = '<font color="#c040c0">\x1b</font>[37m'<br>
 <strong>ANSI_NORMAL</strong> = '<font color="#c040c0">\x1b</font>[0m'<br>
 <strong>ANSI_PURPLE</strong> = '<font color="#c040c0">\x1b</font>[35m'<br>
 <strong>ANSI_RED</strong> = '<font color="#c040c0">\x1b</font>[31m'<br>
 <strong>ANSI_UNDERLINE</strong> = '<font color="#c040c0">\x1b</font>[4m'<br>
-<strong>ANSI_YELLOW</strong> = '<font color="#c040c0">\x1b</font>[33m'<br>
-<strong>__created__</strong> = '2012-11-28'<br>
-<strong>__modified__</strong> = '2012-11-28'</td></tr></table>
+<strong>ANSI_YELLOW</strong> = '<font color="#c040c0">\x1b</font>[33m'</td></tr></table>
 </body></html>

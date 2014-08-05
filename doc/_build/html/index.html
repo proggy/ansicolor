@@ -58,31 +58,55 @@
 </div>
 <span class="target" id="module-ansicolor"></span><p>Add ANSI escape codes to a given string to print styled text in consoles
 and terminal emulators.</p>
-<p>The main function with which about anything can be done is <em>colored()</em>.  Almost
-any combination of font color, background color and different styles
-(highlighted, underlined, etc.) can be defined using keyword arguments.</p>
+<p>The main function with which about anything can be done is <a class="reference internal" href="#ansicolor.colored" title="ansicolor.colored"><tt class="xref py py-func docutils literal"><span class="pre">colored()</span></tt></a>.
+Almost any combination of font color, background color and different styles
+(highlighted, underlined, etc.) can be defined using keyword arguments. Also
+important for practical usage of styled strings is the function <a class="reference internal" href="#ansicolor.dlen" title="ansicolor.dlen"><tt class="xref py py-func docutils literal"><span class="pre">dlen()</span></tt></a>,
+which computes the <strong>display length</strong> of a string, i.e. the actual number of
+characters the string takes if printed to the screen, excluding any ANSI escape
+sequences.</p>
 <p>For convenience, there exist some functions with an even shorter syntax:
-<em>red()</em>, <em>green()</em>, etc. to just color the text, <em>hred()</em>, <em>hgreen()</em>, etc. to
-get highlighted colored text, <em>ured()</em>, <em>ugreen()</em>, etc. to get
-underlined colored text. To just change the style of the text and not its
-color, the functions <em>highlight()</em>, <em>underline()</em>, <em>invert()</em>, <em>conceal()</em>,
-<em>blink()</em>, and <em>normal()</em> are provided.</p>
-<p>List of colors: <em>gray</em>, <em>red</em>, <em>green</em>, <em>yellow</em>, <em>blue</em>, <em>purple</em>, <em>cyan</em>,
-<em>lightgray</em></p>
-<p>List of styles: <em>normal</em>, <em>highlight</em>, <em>underline</em>, <em>blink</em>, <em>invert</em>,
-<em>conceal</em></p>
+<a class="reference internal" href="#ansicolor.red" title="ansicolor.red"><tt class="xref py py-func docutils literal"><span class="pre">red()</span></tt></a>, <a class="reference internal" href="#ansicolor.green" title="ansicolor.green"><tt class="xref py py-func docutils literal"><span class="pre">green()</span></tt></a>, etc. to just color the text, <a class="reference internal" href="#ansicolor.hred" title="ansicolor.hred"><tt class="xref py py-func docutils literal"><span class="pre">hred()</span></tt></a>,
+<a class="reference internal" href="#ansicolor.hgreen" title="ansicolor.hgreen"><tt class="xref py py-func docutils literal"><span class="pre">hgreen()</span></tt></a>, etc. to get highlighted colored text, <a class="reference internal" href="#ansicolor.ured" title="ansicolor.ured"><tt class="xref py py-func docutils literal"><span class="pre">ured()</span></tt></a>,
+<a class="reference internal" href="#ansicolor.ugreen" title="ansicolor.ugreen"><tt class="xref py py-func docutils literal"><span class="pre">ugreen()</span></tt></a>, etc. to get underlined colored text. To just change the style
+of the text and not its color, the functions <a class="reference internal" href="#ansicolor.highlight" title="ansicolor.highlight"><tt class="xref py py-func docutils literal"><span class="pre">highlight()</span></tt></a>,
+<a class="reference internal" href="#ansicolor.underline" title="ansicolor.underline"><tt class="xref py py-func docutils literal"><span class="pre">underline()</span></tt></a>, <a class="reference internal" href="#ansicolor.invert" title="ansicolor.invert"><tt class="xref py py-func docutils literal"><span class="pre">invert()</span></tt></a>, <a class="reference internal" href="#ansicolor.conceal" title="ansicolor.conceal"><tt class="xref py py-func docutils literal"><span class="pre">conceal()</span></tt></a>, <a class="reference internal" href="#ansicolor.blink" title="ansicolor.blink"><tt class="xref py py-func docutils literal"><span class="pre">blink()</span></tt></a>, and
+<a class="reference internal" href="#ansicolor.normal" title="ansicolor.normal"><tt class="xref py py-func docutils literal"><span class="pre">normal()</span></tt></a> are provided.</p>
+<p>List of colors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#ansicolor.gray" title="ansicolor.gray"><tt class="xref py py-func docutils literal"><span class="pre">gray()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.red" title="ansicolor.red"><tt class="xref py py-func docutils literal"><span class="pre">red()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.green" title="ansicolor.green"><tt class="xref py py-func docutils literal"><span class="pre">green()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.yellow" title="ansicolor.yellow"><tt class="xref py py-func docutils literal"><span class="pre">yellow()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.blue" title="ansicolor.blue"><tt class="xref py py-func docutils literal"><span class="pre">blue()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.purple" title="ansicolor.purple"><tt class="xref py py-func docutils literal"><span class="pre">purple()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.cyan" title="ansicolor.cyan"><tt class="xref py py-func docutils literal"><span class="pre">cyan()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.lightgray" title="ansicolor.lightgray"><tt class="xref py py-func docutils literal"><span class="pre">lightgray()</span></tt></a></li>
+</ul>
+</div></blockquote>
+<p>List of styles:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="#ansicolor.normal" title="ansicolor.normal"><tt class="xref py py-func docutils literal"><span class="pre">normal()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.highlight" title="ansicolor.highlight"><tt class="xref py py-func docutils literal"><span class="pre">highlight()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.underline" title="ansicolor.underline"><tt class="xref py py-func docutils literal"><span class="pre">underline()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.blink" title="ansicolor.blink"><tt class="xref py py-func docutils literal"><span class="pre">blink()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.invert" title="ansicolor.invert"><tt class="xref py py-func docutils literal"><span class="pre">invert()</span></tt></a></li>
+<li><a class="reference internal" href="#ansicolor.conceal" title="ansicolor.conceal"><tt class="xref py py-func docutils literal"><span class="pre">conceal()</span></tt></a></li>
+</ul>
+</div></blockquote>
 <p>Courtesy goes to:
 <a class="reference external" href="http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html">http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html</a></p>
-<div class="section" id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
+<p>Notes:</p>
+<blockquote>
+<div><ol class="arabic simple">
 <li>The blinking style probably won&#8217;t work in most terminal emulators.</li>
-<li>As far as I know, ANSI escape codes are not interpreted under the Windows
-operating system.</li>
+<li>As far as I know, ANSI escape codes are not interpreted under the
+Windows operating system.</li>
 </ol>
-</div>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+</div></blockquote>
+<p>Examples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">highlight</span><span class="p">(</span><span class="s">&#39;Welcome to the ansicolor module&#39;</span><span class="p">)</span>
 <span class="go">Welcome to the ansicolor module</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">red</span><span class="p">(</span><span class="s">&#39;This is some red text.&#39;</span><span class="p">)</span>
@@ -97,7 +121,6 @@ operating system.</li>
 by executing this module as a script:</p>
 <blockquote>
 <div>python ansicolor/__init__.py</div></blockquote>
-</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -105,13 +128,40 @@ by executing this module as a script:</p>
 <tt class="descclassname">ansicolor.</tt><tt class="descname">colored</tt><big>(</big><em>string</em>, <em>color=None</em>, <em>style=None</em>, <em>bg=None</em>, <em>revert=True</em><big>)</big><a class="headerlink" href="#ansicolor.colored" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add ANSI escape sequences to a given string to display it in a certain
 <em>color</em> and <em>style</em> in a console or terminal emulator. Also the background
-color <em>bg</em> can be set separately.  If <em>revert</em> is True, return to normal
+color <em>bg</em> can be set separately.  If <em>revert</em> is <em>True</em>, return to normal
 style at the end of the string (default). In <em>style</em>, multiple
-comma-separated styles may be specified.</p>
-<p>List of supported colors:
-gray, red, green, yellow, blue, purple, cyan, lightgray</p>
-<p>List of supported styles:
-normal, highlight, underline, blink, invert, conceal</p>
+comma-separated styles can be specified.</p>
+<p>List of supported colors:</p>
+<blockquote>
+<div><ul class="simple">
+<li>gray</li>
+<li>red</li>
+<li>green</li>
+<li>yellow</li>
+<li>blue</li>
+<li>purple</li>
+<li>cyan</li>
+<li>lightgray</li>
+</ul>
+</div></blockquote>
+<p>List of supported styles:</p>
+<blockquote>
+<div><ul class="simple">
+<li>normal</li>
+<li>highlight</li>
+<li>underline</li>
+<li>blink</li>
+<li>invert</li>
+<li>conceal</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="ansicolor.dlen">
+<tt class="descclassname">ansicolor.</tt><tt class="descname">dlen</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#ansicolor.dlen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return display length of the given string, i.e. the number of characters
+that it takes on the screen, excluding any ANSI escape sequences.</p>
 </dd></dl>
 
 <dl class="function">
@@ -302,8 +352,6 @@ normal, highlight, underline, blink, invert, conceal</p>
   <h3><a href="#">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">ansicolor</a><ul>
-<li><a class="reference internal" href="#notes">Notes</a></li>
-<li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#functions">Functions</a><ul>
 <li><a class="reference internal" href="#styles">Styles</a></li>
 <li><a class="reference internal" href="#colors">Colors</a></li>
