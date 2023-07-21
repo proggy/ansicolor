@@ -1,11 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # Copyright notice
 # ----------------
 #
-# Copyright (C) 2013-2014 Daniel Jung.
-# Contact: djungbremen@gmail.com
+# Copyright (C) 2013-2023 Daniel Jung.
+# Contact: proggy-contact@mailbox.org
 #
 # This program is free software; you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by the Free
@@ -69,8 +69,9 @@ Finished.
 To see the results as rendered in your terminal emulator, call the test program
 by executing this module as a script:
 
-    python ansicolor/__init__.py"""
-# 2012-11-28 - 2014-06-09
+    python ansicolor/__init__.py
+"""
+__version__ = '0.1.1'
 
 
 #=========================#
@@ -123,9 +124,9 @@ def colored(string, color=None, style=None, bg=None, revert=True):
     gray, red, green, yellow, blue, purple, cyan, lightgray
 
     List of supported styles:
-    normal, highlight, underline, blink, invert, conceal"""
-    # 2012-11-28 - 2012-11-28
-    if not isinstance(string, basestring):
+    normal, highlight, underline, blink, invert, conceal
+    """
+    if not isinstance(string, str):
         raise TypeError('string expected')
 
     # set style
@@ -360,13 +361,13 @@ def ulightgray(string):
 def test():
     """Test program to demonstrate the features of the ansicolor module."""
     # 2012-11-28 - 2014-05-27
-    print highlight('Welcome to the ansicolor module')
-    print highlight('-------------------------------')
-    print
-    print red('This is some red text.')
-    print ublue('And this is blue and underlined. Awesome!')
-    print
-    print hgray('Finished.')
+    print(highlight('Welcome to the ansicolor module'))
+    print(highlight('-------------------------------'))
+    print()
+    print(red('This is some red text.'))
+    print(ublue('And this is blue and underlined. Awesome!'))
+    print()
+    print(hgray('Finished.'))
 
 
 if __name__ == '__main__':
